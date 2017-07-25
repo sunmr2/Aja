@@ -49,8 +49,7 @@ XpointValidationGenerator::XpointValidationGenerator(string file)
     {
         for(unsigned int j= 0; j < NTV2_LAST_OUTPUT_CROSSPOINT; j++)
         {
-            matrixYCbCr[i][j] = false;
-            matrixRGB[i][j] = false;
+          combinedMatrix[i][j] = false;
         }
     }
 
@@ -552,7 +551,7 @@ void XpointValidationGenerator::parse(NTV2DeviceID deviceId)
     {
         for (list_iter = iter->second.begin(); list_iter != iter->second.end(); list_iter++)
         {
-            matrixYCbCr[iter->first][(*list_iter)] = true;
+            combinedMatrix[iter->first][(*list_iter)] = true;
             numYUVConnections++;
         }
     }
@@ -564,7 +563,7 @@ void XpointValidationGenerator::parse(NTV2DeviceID deviceId)
     {
         for (list_iter = iter->second.begin(); list_iter != iter->second.end(); list_iter++)
         {
-            matrixRGB[iter->first][(*list_iter)] = true;
+            combinedMatrix[iter->first][(*list_iter)] = true;
             numRGBConnections++;
         }
     }
@@ -599,9 +598,9 @@ void XpointValidationGenerator::writeHeader(string outname)
     matrixfile << "#define __" + headerName  + "_H_INCLUDED" << endl;
     matrixfile << "#include \"ntv2enum2.h\"" << endl;
     matrixfile << "// date created: " << ctime(&curT) << endl;
-    matrixfile << "bool " + outputFilename + "MatrixRGB[NTV2_LAST_INPUT_CROSSPOINT][NTV2_LAST_OUTPUT_CROSSPOINT] = {";
+    matrixfile << "bool " + outputFilename + "Matrix[NTV2_LAST_INPUT_CROSSPOINT][NTV2_LAST_OUTPUT_CROSSPOINT] = {";
 
-    // Iterate through the matrices and print out all the boolean values into the RGB matrix
+    // Iterate through the matrices and print out all the boolean values into the header file matrix
     for(unsigned int i=0; i < NTV2_LAST_INPUT_CROSSPOINT; i++)
     {
         matrixfile << "{";
@@ -609,30 +608,22 @@ void XpointValidationGenerator::writeHeader(string outname)
         for(unsigned int j=0; j < NTV2_LAST_OUTPUT_CROSSPOINT; j++)
         {
             if(j == 0)
-                matrixfile << matrixRGB[i][j];
+            {
+                if(matrixRGB[i][j] == 1  || matrixYCbCr[i][j] == 1)
+                  matrixfile << "true";
+                else
+                  matrixfile << "false";
+            }
             else
-                matrixfile << ", " << matrixRGB[i][j];
+            {
+                matrixfile << ", ";
+                if(matrixRGB[i][j] == 1  || matrixYCbCr[i][j] == 1)
+                  matrixfile << "true";
+                else
+                  matrixfile << "false";
+            }
         }
 
-        if(i < NTV2_LAST_OUTPUT_CROSSPOINT)
-            matrixfile << "},\n ";
-        else
-            matrixfile << "}";
-    }
-    matrixfile << "} \n \n" << endl;
-
-    // Iterate through the matrices and print out all the boolean values into the YCbCr matrix
-    matrixfile << "bool " + outputFilename + "MatrixYCbCr[NTV2_LAST_INPUT_CROSSPOINT][NTV2_LAST_OUTPUT_CROSSPOINT] = {";
-    for(unsigned int i=0; i < NTV2_LAST_INPUT_CROSSPOINT; i++)
-    {
-        matrixfile << "{";
-        for(unsigned int j=0; j < NTV2_LAST_OUTPUT_CROSSPOINT; j++)
-        {
-            if(j == 0)
-                matrixfile << matrixYCbCr[i][j];
-            else
-                matrixfile << ", " << matrixYCbCr[i][j];
-        }
         if(i < NTV2_LAST_OUTPUT_CROSSPOINT)
             matrixfile << "},\n ";
         else
