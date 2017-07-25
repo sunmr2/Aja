@@ -1021,15 +1021,89 @@ bool NTV2DeviceCanConnect (const NTV2DeviceID inDeviceID, const NTV2InputCrosspo
 	(void) inOutputXpt;
     switch(inDeviceID)
     {
+        case DEVICE_ID_CORVID1:
+            //return xpt_c1MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_CORVID22:
+            //return xpt_c22MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_CORVID24:
+            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_CORVID3G:
+            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
         case DEVICE_ID_CORVID44:
-            return xpt_c44MatrixYCbCr[inInputXpt][inOutputXpt];
+            //return xpt_c44MatrixYCbCr[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_CORVID88:
-            return xpt_c88MatrixYCbCr[inInputXpt][inOutputXpt];
+            //return xpt_c88MatrixYCbCr[inInputXpt][inOutputXpt];
+            default:
+        case DEVICE_ID_CORVIDHEVC:
+            //return xpt_c1MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_CORVIDHBR:
+            //return xpt_c22MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_IO4K:
+            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_IO4KUFC:
+            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_IOEXPRESS:
+            //return xpt_c44MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_IOXT:
+            //return xpt_c88MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONA3G:
+            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONA3GQUAD:
+            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONA4:
+            //return xpt_c44MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONA4UFC:
+            //return xpt_c88MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONALHEPLUS:
+            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONALHI:
+            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONALHIDVI:
+            //return xpt_c44MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_TTAP:
+            //return xpt_c88MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONAIP_4CH_1SFP:
+            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONAIP_4CH_2SFP:
+            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONAIP_2TX_1SFP_J2K:
+            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONAIP_2RX_1SFP_J2K:
+            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_KONAIP_1RX_1TX_2110:
+            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_IO4KPLUS:
+            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            break;
+        case DEVICE_ID_IO4KIP:
+            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
             break;
         default:
             return false;
-
     }
 }
 
