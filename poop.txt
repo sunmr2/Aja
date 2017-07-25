@@ -4,7 +4,11 @@ aaaaaaaaa
 
  scott
 
+<<<<<<< HEAD
+Sun's change
+=======
 
 
 
  the dog
+>>>>>>> 7d7f63b43d2524ef3ed4462c8fe6bce4fbcd2563
