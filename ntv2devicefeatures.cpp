@@ -1047,10 +1047,10 @@ bool NTV2DeviceCanConnect (const NTV2DeviceID inDeviceID, const NTV2InputCrosspo
             //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_CORVID44:
-            //return xpt_c44MatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_c44Matrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_CORVID88:
-            //return xpt_c88MatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_c88Matrix[inInputXpt][inOutputXpt];
             default:
         case DEVICE_ID_CORVIDHEVC:
             //return xpt_c1MatrixYCbCr[inInputXpt][inOutputXpt];
@@ -1059,10 +1059,10 @@ bool NTV2DeviceCanConnect (const NTV2DeviceID inDeviceID, const NTV2InputCrosspo
             //return xpt_c22MatrixYCbCr[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_IO4K:
-            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_io4kMatrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_IO4KUFC:
-            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_io4k_ufcMatrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_IOEXPRESS:
             //return xpt_c44MatrixYCbCr[inInputXpt][inOutputXpt];
@@ -1077,10 +1077,10 @@ bool NTV2DeviceCanConnect (const NTV2DeviceID inDeviceID, const NTV2InputCrosspo
             //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_KONA4:
-            //return xpt_c44MatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_kona_4Matrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_KONA4UFC:
-            //return xpt_c88MatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_kona4_ufcMatrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_KONALHEPLUS:
             //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
@@ -1095,19 +1095,19 @@ bool NTV2DeviceCanConnect (const NTV2DeviceID inDeviceID, const NTV2InputCrosspo
             //return xpt_c88MatrixYCbCr[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_KONAIP_4CH_1SFP:
-            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_kip_4rxtxMatrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_KONAIP_4CH_2SFP:
-            //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_kip_2p2rxtcMatrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_KONAIP_2TX_1SFP_J2K:
-            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_kip_j2k2txMatrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_KONAIP_2RX_1SFP_J2K:
             //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_KONAIP_1RX_1TX_2110:
-            //return xpt_c24MatrixYCbCr[inInputXpt][inOutputXpt];
+            return xpt_kip_2100_1rxtxMatrix[inInputXpt][inOutputXpt];
             break;
         case DEVICE_ID_IO4KPLUS:
             //return xpt_c3gMatrixYCbCr[inInputXpt][inOutputXpt];
