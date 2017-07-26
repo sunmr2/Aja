@@ -4,9 +4,10 @@
 #include <string.h>
 #include <string>
 #include <vector>
+#include <math.h>
 using namespace std;
 
-void  token(string &target,string &key,string &value)
+void  token(string &target,string &key,int &num)
 {
   vector<string> tokens;
 
@@ -14,7 +15,9 @@ void  token(string &target,string &key,string &value)
 
   char * pch;
 
-  pch = strtok (str," 8'bx");
+  pch = strtok (str," ");
+
+  string value;
 
   while (pch != NULL)
 
@@ -22,22 +25,33 @@ void  token(string &target,string &key,string &value)
 
       tokens.push_back(pch);
 
-      pch = strtok (NULL, " 8'bx");
+      pch = strtok (NULL, " ");
 
   }
 
   for(unsigned int i = 0; i< tokens.size(); i++)
   {
-        key = tokens[1];
+       if(tokens[i].find("`"))
+       {
+        key = tokens[i+1];
+      }
         value = tokens[2];
   }
-  str = (char*)value.c_str();
-  pch = strtok (str,"_");
-  value = pch;
+  value.erase(remove(value.begin(),value.end(),'_'),value.end());
+  cout<<value<<endl;
+  for(unsigned int i = 0; i<value.length();i++)
+  {
+    if(value[i]=='1')
+    {
+      num +=pow(2,(value.length()-i-1));
+    }
+  }
 }
 int main ()
-{   string key,value;
+{
+    string key;
+    int num = 0;
     string target="`define IN1A     8'bx000_0001  //  8'h0e";
-    token(target,key,value);
-    cout<<key<<" "<<value<<endl;
+    token(target,key,num);
+    cout<<key<<" "<<num<<endl;
 }
